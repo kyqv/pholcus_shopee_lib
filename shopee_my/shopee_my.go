@@ -25,12 +25,11 @@ import (
 )
 
 func init() {
-	// fmt.Print("ceshi")
 	ShopeeMy.Register()
 }
 
 var ShopeeMy = &Spider{
-	Name:        "shopee my ",
+	Name:        "shopee my采集",
 	Description: "首页 [https://shopee.com.my/]",
 	// Pausetime: 300,
 	// Keyin:   KEYIN,
