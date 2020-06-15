@@ -51,8 +51,8 @@ var ShopeeMy = &Spider{
 				ParseFunc: func(ctx *Context) {
 					query := ctx.GetDom()
 					//获取分页导航
+					fmt.Printf("%+v", query)
 					navBox := query.Find(".home-category-list__category-grid")
-					fmt.Printf("%+v", navBox)
 					navBox.Each(func(i int, s *goquery.Selection) {
 						if url, ok := s.Attr("href"); ok {
 							fmt.Printf("%+v", url)
