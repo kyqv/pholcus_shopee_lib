@@ -42,6 +42,7 @@ var ShopeeMy = &Spider{
 			ctx.AddQueue(&request.Request{
 				Url:  "https://shopee.com.my/",
 				Rule: "分类列表",
+				DownloaderID: PHANTOM_ID
 			})
 		},
 
@@ -59,6 +60,7 @@ var ShopeeMy = &Spider{
 							ctx.AddQueue(&request.Request{
 								Url:  "https://shopee.com.my" + url,
 								Rule: "详情列表",
+								DownloaderID: PHANTOM_ID
 							})
 						}
 
@@ -80,15 +82,16 @@ var ShopeeMy = &Spider{
 						//时间
 						// newsTime := s.Find(".dd_time").Text()
 						if url, ok := s.Find("a").Attr("href"); ok {
-							ctx.AddQueue(&request.Request{
-								Url: "https://shopee.com.my" + url[2:len(url)],
-								// Rule: "详情内容",
-								// Temp: map[string]interface{}{
-								// 	"newsType":  newsType,
-								// 	"newsTitle": newsTitle,
-								// 	"newsTime":  newsTime,
-								// },
-							})
+							// ctx.AddQueue(&request.Request{
+							// 	Url: "https://shopee.com.my" + url[2:len(url)],
+							// 	DownloaderID: PHANTOM_ID
+							// 	// Rule: "详情内容",
+							// 	// Temp: map[string]interface{}{
+							// 	// 	"newsType":  newsType,
+							// 	// 	"newsTitle": newsTitle,
+							// 	// 	"newsTime":  newsTime,
+							// 	// },
+							// })
 
 							// 输出格式
 							ctx.Output(map[int]interface{}{
