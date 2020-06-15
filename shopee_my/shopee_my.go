@@ -83,11 +83,11 @@ func init() {
 									// 	"newsTitle": newsTitle,
 									// 	"newsTime":  newsTime,
 									// },
+								})
 
-									// 输出格式
-									ctx.Output(map[int]interface{}{
-										0: "https://shopee.com.my" + url[2:len(url)],
-									})
+								// 输出格式
+								ctx.Output(map[int]interface{}{
+									0: "https://shopee.com.my" + url[2:len(url)],
 								})
 							}
 
