@@ -140,5 +140,3 @@ func init() {
 	}.Register()
 	
 }
-
-// var ShopeeMy = &
