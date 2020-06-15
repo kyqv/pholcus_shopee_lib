@@ -26,10 +26,10 @@ import (
 )
 
 func init() {
-	FileTest.Register()
+	FileTestSunny.Register()
 }
 
-var FileTest = &Spider{
+var FileTestSunny = &Spider{
 	Name:        "中国新闻网sunny5156",
 	Description: "测试 [http://www.chinanews.com/scroll-news/news1.html]",
 	// Pausetime: 300,
