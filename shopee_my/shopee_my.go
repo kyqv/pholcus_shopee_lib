@@ -20,7 +20,6 @@ import (
 	"fmt"
 	// "math"
 	// "time"
-	"strings"
 
 	"github.com/henrylee2cn/pholcus/common/goquery"
 )
@@ -42,9 +41,9 @@ func init() {
 					Rule: "分类列表",
 				})
 			},
-	
+
 			Trunk: map[string]*Rule{
-	
+
 				"分类列表": {
 					ParseFunc: func(ctx *Context) {
 						query := ctx.GetDom()
@@ -57,12 +56,12 @@ func init() {
 									Rule: "详情列表",
 								})
 							}
-	
+
 						})
-	
+
 					},
 				},
-	
+
 				"详情列表": {
 					ParseFunc: func(ctx *Context) {
 						query := ctx.GetDom()
@@ -77,26 +76,26 @@ func init() {
 							// newsTime := s.Find(".dd_time").Text()
 							if url, ok := s.Find("a").Attr("href"); ok {
 								ctx.AddQueue(&request.Request{
-									Url:  "https://shopee.com.my" + url[2:len(url)],
+									Url: "https://shopee.com.my" + url[2:len(url)],
 									// Rule: "详情内容",
 									// Temp: map[string]interface{}{
 									// 	"newsType":  newsType,
 									// 	"newsTitle": newsTitle,
 									// 	"newsTime":  newsTime,
 									// },
-	
-									//输出格式
+
+									// 输出格式
 									ctx.Output(map[int]interface{}{
-										0: "https://shopee.com.my" + url[2:len(url)]
+										0: "https://shopee.com.my" + url[2:len(url)],
 									})
 								})
 							}
-	
+
 						})
-	
+
 					},
 				},
-	
+
 				// "详情内容": {
 				// 	ItemFields: []string{
 				// 		"类别",
@@ -105,7 +104,7 @@ func init() {
 				// 		"内容",
 				// 		"时间",
 				// 	},
-	
+
 				// 	ParseFunc: func(ctx *Context) {
 				// 		query := ctx.GetDom()
 				// 		//正文
@@ -124,7 +123,7 @@ func init() {
 				// 				from = strings.Replace(from, "参与互动", "", 1)
 				// 			}
 				// 		}
-	
+
 				// 		//输出格式
 				// 		ctx.Output(map[int]interface{}{
 				// 			0: ctx.GetTemp("newsType", ""),
@@ -138,5 +137,5 @@ func init() {
 			},
 		},
 	}.Register()
-	
+
 }
