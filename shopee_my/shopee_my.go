@@ -1,4 +1,4 @@
-package pholcus_lib
+package pholcus_shopee_lib
 
 // 基础包
 import (
