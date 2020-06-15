@@ -55,6 +55,7 @@ var ShopeeMy = &Spider{
 					fmt.Printf("%+v", navBox)
 					navBox.Each(func(i int, s *goquery.Selection) {
 						if url, ok := s.Attr("href"); ok {
+							fmt.Printf("%+v", url)
 							ctx.AddQueue(&request.Request{
 								Url:  "https://shopee.com.my" + url,
 								Rule: "详情列表",
