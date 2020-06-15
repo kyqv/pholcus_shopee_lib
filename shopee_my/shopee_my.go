@@ -3,6 +3,8 @@ package pholcus_shopee_lib
 // 基础包
 import (
 	// "github.com/henrylee2cn/pholcus/common/goquery"                          //DOM解析
+	"fmt"
+
 	"github.com/henrylee2cn/pholcus/app/downloader/request" //必需
 	. "github.com/henrylee2cn/pholcus/app/spider"           //必需
 
@@ -50,6 +52,7 @@ var ShopeeMy = &Spider{
 					query := ctx.GetDom()
 					//获取分页导航
 					navBox := query.Find(".home-category-list__category-grid")
+					fmt.Printf("%+v", navBox)
 					navBox.Each(func(i int, s *goquery.Selection) {
 						if url, ok := s.Attr("href"); ok {
 							ctx.AddQueue(&request.Request{
