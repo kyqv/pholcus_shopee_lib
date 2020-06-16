@@ -40,9 +40,9 @@ var ShopeeMy = &Spider{
 	RuleTree: &RuleTree{
 		Root: func(ctx *Context) {
 			ctx.AddQueue(&request.Request{
-				Url:          "https://shopee.com.my/api/v2/category_list/get",
-				Rule:         "分类列表",
-				DownloaderID: 1,
+				Url:  "https://shopee.com.my/api/v2/category_list/get",
+				Rule: "分类列表",
+				// DownloaderID: 1,
 			})
 		},
 
@@ -58,9 +58,9 @@ var ShopeeMy = &Spider{
 						if url, ok := s.Attr("href"); ok {
 							fmt.Printf("%+v", url)
 							ctx.AddQueue(&request.Request{
-								Url:          "https://shopee.com.my" + url,
-								Rule:         "详情列表",
-								DownloaderID: 1,
+								Url:  "https://shopee.com.my" + url,
+								Rule: "详情列表",
+								// DownloaderID: 1,
 							})
 						}
 
