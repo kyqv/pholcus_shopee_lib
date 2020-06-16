@@ -15,7 +15,7 @@ import (
 	// "net/url"
 	// 编码包
 	// "encoding/xml"
-	//"encoding/json"
+	"encoding/json"
 	// 字符串处理包
 	//"regexp"
 	// "strconv"
@@ -52,7 +52,11 @@ var ShopeeMy = &Spider{
 				ParseFunc: func(ctx *Context) {
 					query := ctx.GetDom()
 					//获取分页导航
-					fmt.Printf("%+v", ctx.GetText())
+					var navData map[string]interface{}
+					_ = json.Unmarshal([]byte(ctx.GetText()), &navData)
+
+					fmt.Printf("%+v", navData)
+
 					navBox := query.Find(".home-category-list__category-grid")
 					navBox.Each(func(i int, s *goquery.Selection) {
 						if url, ok := s.Attr("href"); ok {
