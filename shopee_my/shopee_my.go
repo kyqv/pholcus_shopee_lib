@@ -75,7 +75,7 @@ var ShopeeMy = &Spider{
 
 					fmt.Printf("%+v", navData)
 
-					for k, v := range navData.Data.CategoryList {
+					for _, v := range navData.Data.CategoryList {
 
 						//https://shopee.com.my/api/v2/subcategory_list/get?catid=
 
