@@ -55,21 +55,21 @@ var ShopeeMy = &Spider{
 					var navData map[string]interface{}
 					_ = json.Unmarshal([]byte(ctx.GetText()), &navData)
 
-					fmt.Printf("%+v", navData)
+					fmt.Printf("%+v", navData["data"])
 
-					for k, v := range navData["data"]["category_list"] {
+					// for k, v := range navData["data"]["category_list"] {
 
-						//https://shopee.com.my/api/v2/subcategory_list/get?catid=
+					// 	//https://shopee.com.my/api/v2/subcategory_list/get?catid=
 
-						fmt.Print("https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.catid)
+					// 	fmt.Print("https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.catid)
 
-						ctx.AddQueue(&request.Request{
-							Url:  "https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.catid,
-							Rule: "详情列表",
-							// DownloaderID: 1,
-						})
+					// 	ctx.AddQueue(&request.Request{
+					// 		Url:  "https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.catid,
+					// 		Rule: "详情列表",
+					// 		// DownloaderID: 1,
+					// 	})
 
-					}
+					// }
 
 					navBox := query.Find(".home-category-list__category-grid")
 					navBox.Each(func(i int, s *goquery.Selection) {
