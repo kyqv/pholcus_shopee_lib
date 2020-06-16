@@ -30,6 +30,22 @@ func init() {
 	ShopeeMy.Register()
 }
 
+type CateList struct {
+	Version string `json:"version"`
+	Data    struct {
+		CategoryList []struct {
+			DisplayName        string      `json:"display_name"`
+			Catid              int         `json:"catid"`
+			Image              string      `json:"image"`
+			NoSub              bool        `json:"no_sub"`
+			IsDefaultSubcat    int         `json:"is_default_subcat"`
+			BlockBuyerPlatform interface{} `json:"block_buyer_platform"`
+		} `json:"category_list"`
+	} `json:"data"`
+	ErrorMsg interface{} `json:"error_msg"`
+	Error    interface{} `json:"error"`
+}
+
 var ShopeeMy = &Spider{
 	Name:        "shopee my采集",
 	Description: "首页 [https://shopee.com.my/]",
@@ -52,10 +68,13 @@ var ShopeeMy = &Spider{
 				ParseFunc: func(ctx *Context) {
 					query := ctx.GetDom()
 					//获取分页导航
-					var navData map[string]interface{}
+					var navData CateList
+
 					_ = json.Unmarshal([]byte(ctx.GetText()), &navData)
 
-					fmt.Printf("%+v", navData["data"])
+					// tmp := navData["data"]
+
+					fmt.Printf("%+v", navData)
 
 					// for k, v := range navData["data"]["category_list"] {
 
