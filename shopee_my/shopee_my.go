@@ -40,7 +40,7 @@ var ShopeeMy = &Spider{
 	RuleTree: &RuleTree{
 		Root: func(ctx *Context) {
 			ctx.AddQueue(&request.Request{
-				Url:          "https://shopee.com.my/",
+				Url:          "https://shopee.com.my/api/v2/category_list/get",
 				Rule:         "分类列表",
 				DownloaderID: 1,
 			})
