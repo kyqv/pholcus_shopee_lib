@@ -18,8 +18,7 @@ import (
 	"encoding/json"
 	// 字符串处理包
 	//"regexp"
-	// "strconv"
-
+	"strconv"
 	// "math"
 	// "time"
 
@@ -80,7 +79,7 @@ var ShopeeMy = &Spider{
 
 						//https://shopee.com.my/api/v2/subcategory_list/get?catid=
 
-						fmt.Print("https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.Catid)
+						fmt.Print("https://shopee.com.my/api/v2/subcategory_list/get?catid=" + strconv.Itoa(v.Catid))
 
 						// ctx.AddQueue(&request.Request{
 						// 	Url:  "https://shopee.com.my/api/v2/subcategory_list/get?catid=" + v.Catid,
